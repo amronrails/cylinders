@@ -1,0 +1,95 @@
+<%= form_for @model, :html => { :class => "form-horizontal model" } do |f| %>
+
+    <% if @model.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@model.errors.count, "error") %> prohibited this model from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @model.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :brand_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :brand_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@model[:brand_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@model[:name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :position, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :position, :class => 'form-control' %>
+    </div>
+    <%= error_span(@model[:position]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :visible, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :visible, :class => 'form-control' %>
+    </div>
+    <%= error_span(@model[:visible]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :permalink, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :permalink, :class => 'form-control' %>
+    </div>
+    <%= error_span(@model[:permalink]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :counter, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :counter, :class => 'form-control' %>
+    </div>
+    <%= error_span(@model[:counter]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, rows: "5", :class => 'form-control' %>
+    </div>
+    <%= error_span(@model[:description]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :year, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :year, :class => 'form-control' %>
+    </div>
+    <%= error_span(@model[:year]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :avatar_file_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :avatar_file_name, :class => 'form-control' %>
+  </div>
+    <%= error_span(@model[:avatar_file_name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :avatar, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :avatar, :class => 'form-control' %>
+    </div>
+    <%= error_span(@model[:avatar]) %>
+  </div>
+  
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            models_path, :class => 'btn btn-default' %>
+
+<% end %>

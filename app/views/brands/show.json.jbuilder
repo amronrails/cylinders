@@ -1,0 +1,11 @@
+json.extract! @brand,
+ :id,
+ :name,
+ :position,
+ :visible,
+ :permalink, 
+ :counter, 
+ :description, 
+ :icon, 
+ :created_at,  
+ :updated_at
