@@ -1,14 +1,200 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Cylinder</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GDG Fayoum</title>
+<link rel="stylesheet" type="text/css" href="CSS.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <style>
+     body{
+	padding-top:80px;
+}
+
+#fixedheader{
+	width:100%;
+	height:70px;
+	background-color:#AAA;
+	position:fixed;
+}
+#GDGlogo{
+	width:150px;
+	height:50px;
+	margin:10px;
+	float:left;
+}
+        body
+        {
+         background-color: #EEE;
+        }
+ #foot{
+     background-image:url(Footer.png);
+	 width:100%;
+	 height:250px;
+	 margin-bottom:10px;
+     margin-top: 1000px;
+}
+#google
+        {
+            margin-top: 150px;
+            padding-top: 110px;
+            margin-left: 130px;
+          margin-bottom: 2px;
+         text-align: center;
+           // text-shadow: 5px;
+            font-size: 50px;
+            color:white;
+            font-family:serif;
+            font-weight: bolder;
+            
+        }
+    #copy
+        {
+         text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+            color: white;
+            margin-left: 20px;
+        }
+    #arrow
+        {
+            margin-top: 40px;
+            width: 20%;
+            height: 200px;
+            float: right;
+        }
+    #logo
+        {
+            margin-top: 80px;
+            width: 20%;
+            height: 150px;
+            float:left;
+        }
+        #logoO
+        {
+             margin-top: 80px;
+            width: 20%;
+            height: 150px;
+            float: left;
+        }
+   
+    </style>
 </head>
+
 <body>
 
-<%= yield %>
-
-</body>
+<div class="container-fluid">
+<div class="jumbotron">
+ <%= yield %>
+</div>
+<div class="row">
+<div class="c col-sm-12">
+<nav class="navbar navbar-inverse navbar-fixed-top" id="fixedheader">
+<div class="container">
+<div class="navbar-header">
+<img src="GDG-program-logo.png" id="GDGlogo" />
+<span style="float:left; color:#FFF; font-family:Arial, Helvetica, sans-serif; font-size:36px; font-weight:bold; margin-top:10px;">Fayoum</span>
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+</div>
+<div class="collapse navbar-collapse" id="navbar-menu">
+<form class="navbar-form navbar-right" style="padding-top:10px;">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="what do you want to search on our website ?" style="width:310px;" />
+</div>
+<button class="btn btn-primary" style="width:100px;"><span >search</span></button>
+</form>
+<p class="navbar-text navbar-right"></p>
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+    
+    <div id="foot">
+     <img src="arrow.png" alt="arrow" id="arrow"> 
+         <img src="logo.png" alt="logo" id="logo"> 
+         <img src="logoO.png" alt="logoO" id="logoO"> 
+        <p id="google">Google Developers</p> 
+        
+        <script>
+    
+    var months=new Array(13);
+months[1]="Jan";
+months[2]="Feb";
+months[3]="Mar";
+months[4]="Apr";
+months[5]="May";
+months[6]="Jun";
+months[7]="Jul";
+months[8]="Aug";
+months[9]="Sep";
+months[10]="Oct";
+months[11]="Nov";
+months[12]="Dec";
+var time=new Date();
+var lmonth=months[time.getMonth() + 1];
+var date=time.getDate();
+var year=time.getYear();
+if (year < 2000)    
+year = year + 1900; 
+document.write("<center>" + date + "  ");
+document.write(lmonth + "  " + year + "</center>");
+    
+    </script>
+         <!--time-->
+            <div align="center">
+    			<table>
+      				<script>
+						function getthedate(){
+						var mydate=new Date()
+						var daym=mydate.getDate()
+						if (daym<10)
+						daym="0"+daym
+						var hours=mydate.getHours()
+						var minutes=mydate.getMinutes()
+						var seconds=mydate.getSeconds()
+						var dn="H:i"
+						if (hours>=12)
+						dn="PM"
+						if (hours>12){
+						hours=hours-12
+						}
+						if (hours==0)
+						hours=12
+						if (minutes<=9)
+						minutes="0"+minutes
+						if (seconds<=9)
+						seconds="0"+seconds
+						var cdate="<big><font color='#FFF' face='MS Sans Serif'>"+hours+":"+minutes+":"+seconds+"</font></big>"
+						if (document.all)
+						document.all.clock.innerHTML=cdate
+						else if (document.getElementById)
+						document.getElementById("clock").innerHTML=cdate
+						else
+						document.write(cdate)
+						}
+						if (!document.all&&!document.getElementById)
+						getthedate()
+						function goforit(){
+						if (document.all||document.getElementById)
+						setInterval("getthedate()",1000)
+						}
+					</script>
+					<span id="clock"><body  rightmargin="0" leftmargin="0" topmargin="0" marginwidth="0"  onLoad="goforit()"></span>
+				</table>
+			</div>
+            <!--end time fun-->
+        
+        <p id="copy">&copy;Edit by GDG Fayoum members</p>  
+    </div>
+    </body>
 </html>

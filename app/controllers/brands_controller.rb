@@ -1,17 +1,19 @@
 class BrandsController < ApplicationController
 
-  layout "twitter"
   before_action :set_brand, only: [:show, :edit, :update, :destroy]
 
   # GET /brands
   # GET /brands.json
   def index
-    @brands = Brand.all
+    @brands = Brand.all.sorted
   end
 
   # GET /brands/1
   # GET /brands/1.json
   def show
+    @brand = Brand.find(params[:id])
+    @brand.counter +=1
+    @brand.save
   end
 
   # GET /brands/new
