@@ -22,7 +22,7 @@
         <td><%= brand.visible %></td>
         <td><%= brand.permalink %></td>
         <td><%= brand.counter %></td>
-        <td><%= brand.models.size %></td>
+        <td><%= link_to brand.models.size, {:controller => 'models', :brand_id => brand.id} %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_brand_path(brand), :class => 'btn btn-default btn-xs' %>

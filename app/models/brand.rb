@@ -2,6 +2,7 @@ class Brand < ActiveRecord::Base
 	
 	#relations 
 	has_many :models
+	has_and_belongs_to_many :admin_users
 
 	#in between
 	has_attached_file :icon, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"

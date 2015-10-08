@@ -58,8 +58,18 @@
     <%= error_span(@brand[:description]) %>
   </div>
   <div class="control-group">
-    <%= f.label :icon %><br>
-    <%= f.file_field :icon %>
+    <%= f.label :icon_file_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :icon_file_name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@brand[:icon_file_name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :icon, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :icon, :class => 'form-control' %>
+    </div>
+    <%= error_span(@brand[:icon_content_type]) %>
     <br>
   </div>
 

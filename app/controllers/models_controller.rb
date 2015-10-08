@@ -1,11 +1,17 @@
 class ModelsController < ApplicationController
   layout "twitter"
+  before_action :confirm_login
   before_action :set_model, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_brand
   # GET /models
   # GET /models.json
   def index
-    @models = Model.all
+    if params[:brand_id]
+      @models = @brand.models.all.sorted
+    else
+      @models = Model.sorted
+    end
+
   end
 
   # GET /models/1
@@ -66,6 +72,12 @@ class ModelsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_model
       @model = Model.find(params[:id])
+    end
+
+    def set_brand
+      if params[:brand_id]
+        @brand = Brand.find(params[:brand_id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

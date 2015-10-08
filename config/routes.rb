@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
-  root "brands#index"
+  root "access#index"
+
+  get 'admin', :to => "access#index"
+
   resources :cars
 
   resources :models
 
   resources :brands
+
+  match ':controller(/:action(/:id))', :via => [:get,:post]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

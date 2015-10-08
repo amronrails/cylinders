@@ -1,0 +1,26 @@
+<br>
+<br>
+<br>
+<br>
+<div class="form-horizontal brand">
+	<%= form_tag(:action => 'attempt_login') do %>
+	<div class="control-group">
+    <%= label_tag(:username)+ ":" %>
+    <div class="controls">
+      <%= text_field_tag(:username)%>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= label_tag(:password)+ ":" %>
+    <div class="controls">
+      <%= password_field_tag(:password) %>
+    </div>
+  </div>
+  <br>
+  <%= submit_tag "Log In", calss: "btn btn-primary" %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            brands_path, :class => 'btn btn-default' %>
+  <% end %>
+</div>
+
