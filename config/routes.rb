@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :cars
 
   resources :admin_user
-
+##
   resources :models
 
   resources :brands
