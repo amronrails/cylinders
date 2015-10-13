@@ -1,8 +1,8 @@
 class AdminUserController < ApplicationController
 	layout "twitter"
 
-	#before_action :confirm_login
-	#before_action :confirm_adminstrator
+	before_action :confirm_login
+	before_action :confirm_adminstrator
   def index
   	@admin_users = AdminUser.sorted
   end
