@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> create_user
   root "access#index"
 
   get 'admin', :to => "access#index"
 
   resources :cars
+
+  resources :admin_user
 
   resources :models
 

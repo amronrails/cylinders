@@ -1,9 +1,14 @@
 class AdminUserController < ApplicationController
 	layout "twitter"
 
+<<<<<<< HEAD
 	before_action :confirm_login
 	before_action :confirm_adminstrator
 
+=======
+	#before_action :confirm_login
+	#before_action :confirm_adminstrator
+>>>>>>> create_user
   def index
   	@admin_users = AdminUser.sorted
   end
@@ -17,6 +22,7 @@ class AdminUserController < ApplicationController
   end
 
   def create
+    @admin_user = AdminUser.new(admin_user_params)
   	if @admin_user.save
       flash[:notice] = "User Added"
       redirect_to(:action => 'index')
@@ -30,28 +36,27 @@ class AdminUserController < ApplicationController
   end
 
   def update
-    if @admin_user.update
+
   end
   
-  def initiate
-    @admin_user = AdminUser.new
-    @admin_user.userame = "admin"
-    @admin_user.password"admin"
-    @adminuser.save
+def admin_user_params
+    params.require(:admin_user).permit(:adminstrator, :username, :password)
   end
 
 
 
-  private
-  def confirm_adminstrator
-  	unless session[:adminstrator]
-  		flash[:notice]= "You Are Not Allowed!!"
-  		redirect_to(:controller => 'brands')
-  		return false
-  	else
-  		flash[:notice]= "Take Care"
-  		return true
-  	end
+  # private
+  # def confirm_adminstrator
+  # 	unless session[:adminstrator]
+  # 		flash[:notice]= "You Are Not Allowed!!"
+  # 		redirect_to(:controller => 'brands')
+  # 		return false
+  # 	else
+  # 		flash[:notice]= "Take Care"
+  # 		return true
+  # 	end
+
+  # end
+
 
   end
-end
