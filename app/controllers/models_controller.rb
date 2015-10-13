@@ -22,10 +22,12 @@ class ModelsController < ApplicationController
   # GET /models/new
   def new
     @model = Model.new
+    @brands = Brand.sorted
   end
 
   # GET /models/1/edit
   def edit
+    @brands = Brand.sorted
   end
 
   # POST /models

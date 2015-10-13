@@ -20,7 +20,7 @@
       <tr>
         <td><%= link_to car.position, car_path(car) %></td>
         <td><%= car.name %></td>
-        <td><%= car.model_id %></td>
+        <td><%= link_to Model.find(car.model_id).name, :model_id => car.model_id  %></td>
         <td><%= car.visible %></td>
         <td><%= car.permalink %></td>
         <td><%= car.counter %></td>

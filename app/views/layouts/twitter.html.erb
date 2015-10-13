@@ -45,15 +45,20 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../brands">
-           <%= image_tag("/logo2.png", size: "120x100")%> 
+        <a class="navbar-brand">
+           <%=link_to image_tag("/logo2.png", size: "120x100"), {:controller => 'brands'}%> 
         </a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to "Brands", {:controller => 'brands', :action => 'index'}  %></li>
             <li><%= link_to "Models", {:controller => 'models', :action => 'index'}  %></li>
             <li><%= link_to "Cars", {:controller => 'cars', :action => 'index'}  %></li>
-            <li><%= link_to "Logout", {:controller => 'access', :action => 'logout'}  %></li>
+            <% if !session[:username].blank? %>
+            <% user = session[:username] %>
+            <li>
+            <%= link_to "Logout[#{user}]", {:controller => 'access', :action => 'logout'}  %>
+            </li>
+            <%end%>
           </ul>
         </div>
       </div>
@@ -76,13 +81,18 @@
           </div><!--/.well -->
         </div><!--/span-->
       </div><!--/row-->
-
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
       <footer>
       <br>
         <p>&copy; amronrails 2015</p>
       </footer>
 
     </div> <!-- /container -->
-
+</div><!-- #wrapper -->
   </body>
 </html>

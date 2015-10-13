@@ -2,11 +2,15 @@ class CarsController < ApplicationController
   layout "twitter"
   before_action :confirm_login
   before_action :set_car, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_model
   # GET /cars
   # GET /cars.json
   def index
-    @cars = Car.all.sorted
+    if params[:model_id]
+      @cars = @model.cars.sorted
+    else
+      @cars = Car.sorted
+    end
   end
 
   # GET /cars/1
@@ -17,10 +21,12 @@ class CarsController < ApplicationController
   # GET /cars/new
   def new
     @car = Car.new
+    @models = Model.sorted
   end
 
   # GET /cars/1/edit
   def edit
+    @models = Model.sorted
   end
 
   # POST /cars
@@ -69,6 +75,11 @@ class CarsController < ApplicationController
       @car = Car.find(params[:id])
     end
 
+    def set_model
+      if params[:model_id]
+        @model = Model.find(params[:model_id])
+      end
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
       params.require(:car).permit(:model_id, :name, :visible, :permalink, :counter, :description, :position, :year, :image)

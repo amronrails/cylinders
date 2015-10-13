@@ -7,6 +7,9 @@ class AccessController < ApplicationController
   end
 
   def login
+    unless session[:user_id].blank?
+      redirect_to(:action => 'index')
+    end
   	#loginform
   end
 

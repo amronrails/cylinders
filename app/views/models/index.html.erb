@@ -10,8 +10,8 @@
       <th><%= model_class.human_attribute_name(:brand_id) %></th>
       <th><%= model_class.human_attribute_name(:visible) %></th>
       <th><%= model_class.human_attribute_name(:permalink) %></th>
-      <th><%= model_class.human_attribute_name("Views") %></th>
       <th><%= model_class.human_attribute_name(:year) %></th>
+      <th><%= model_class.human_attribute_name("Cars") %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -19,12 +19,14 @@
     <% @models.each do |model| %>
       <tr>
         <td><%= link_to model.position, model_path(model) %></td>
-        <td><%= model.name %></td>
-        <td><%= model.brand_id %></td>
+        <td><%= model.name%></td>
+        <td>
+        <%= link_to Brand.find(model.brand_id).name, { :brand_id => model.brand_id} %>
+        </td>
         <td><%= model.visible %></td>
         <td><%= model.permalink %></td>
-        <td><%= model.counter %></td>
         <td><%= model.year %></td>
+        <td><%= link_to model.cars.size, {:controller => 'cars', :model_id => model.id} %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_model_path(model), :class => 'btn btn-default btn-xs' %>
