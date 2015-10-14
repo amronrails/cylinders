@@ -39,18 +39,18 @@ def admin_user_params
 
 
 
-  # private
-  # def confirm_adminstrator
-  # 	unless session[:adminstrator]
-  # 		flash[:notice]= "You Are Not Allowed!!"
-  # 		redirect_to(:controller => 'brands')
-  # 		return false
-  # 	else
-  # 		flash[:notice]= "Take Care"
-  # 		return true
-  # 	end
+  private
+  def confirm_adminstrator
+  	unless session[:adminstrator]
+  		flash[:notice]= "You Are Not Allowed!!"
+  		redirect_to(:controller => 'brands')
+  		return false
+  	else
+  		flash[:notice]= "Take Care"
+  		return true
+  	end
 
-  # end
+  end
 
 
   end
