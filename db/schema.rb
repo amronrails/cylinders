@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151008031217) do
+ActiveRecord::Schema.define(version: 20151014162742) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "username",        limit: 255, null: false
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(version: 20151008031217) do
 
   add_index "admin_users_brands", ["admin_user_id", "brand_id"], name: "index_admin_users_brands_on_admin_user_id_and_brand_id", using: :btree
 
+  create_table "agents", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "position",   limit: 4
+    t.boolean  "visible",    limit: 1
+    t.integer  "views",      limit: 4
+    t.string   "adress",     limit: 255
+    t.text     "details",    limit: 65535
+    t.string   "phone",      limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "brands", force: :cascade do |t|
     t.string   "name",              limit: 255,                   null: false
     t.integer  "position",          limit: 4
@@ -47,6 +59,16 @@ ActiveRecord::Schema.define(version: 20151008031217) do
   end
 
   add_index "brands", ["permalink"], name: "index_brands_on_permalink", using: :btree
+
+  create_table "car_prices", force: :cascade do |t|
+    t.integer  "agent_id",   limit: 4
+    t.integer  "car_id",     limit: 4
+    t.integer  "price",      limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "car_prices", ["agent_id", "car_id"], name: "index_car_prices_on_agent_id_and_car_id", using: :btree
 
   create_table "cars", force: :cascade do |t|
     t.integer  "model_id",           limit: 4

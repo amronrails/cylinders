@@ -16,6 +16,7 @@ class CarsController < ApplicationController
   # GET /cars/1
   # GET /cars/1.json
   def show
+    @car_prices = @car.car_prices
   end
 
   # GET /cars/new

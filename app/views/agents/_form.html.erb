@@ -1,0 +1,73 @@
+<%= form_for @agent, :html => { :class => "form-horizontal agent" } do |f| %>
+
+    <% if @agent.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@agent.errors.count, "error") %> prohibited this agent from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @agent.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@agent[:name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :position, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :position, :class => 'form-control' %>
+    </div>
+    <%= error_span(@agent[:position]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :visible, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :visible, :class => 'form-control' %>
+    </div>
+    <%= error_span(@agent[:visible]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :views, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :views, :class => 'form-control' %>
+    </div>
+    <%= error_span(@agent[:views]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :adress, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :adress, :class => 'form-control' %>
+    </div>
+    <%= error_span(@agent[:adress]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :details, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :details, :rows => 5, :class => 'form-control' %>
+    </div>
+    <%= error_span(@agent[:details]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :phone, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :phone, :class => 'form-control' %>
+    </div>
+    <%= error_span(@agent[:phone]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            agents_path, :class => 'btn btn-default' %>
+
+<% end %>

@@ -46,13 +46,15 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand">
-           <%=link_to image_tag("/logo2.png", size: "120x100"), {:controller => 'brands'}%> 
+           <%=link_to image_tag("logo.png", size: "120x100"), {:controller => 'brands'}%> 
         </a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to "Brands", {:controller => 'brands', :action => 'index'}  %></li>
             <li><%= link_to "Models", {:controller => 'models', :action => 'index'}  %></li>
             <li><%= link_to "Cars", {:controller => 'cars', :action => 'index'}  %></li>
+            <li><%= link_to "agents", {:controller => 'agents', :action => 'index'}  %></li>
+
             <% if !session[:username].blank? %>
             <% user = session[:username] %>
             <li>
@@ -77,6 +79,8 @@
               <li><%= link_to "Brands", {:controller => 'brands', :action => 'index'}  %></li>
               <li><%= link_to "Models", {:controller => 'models', :action => 'index'}  %></li>
               <li><%= link_to "Cars", {:controller => 'cars', :action => 'index'}  %></li>
+              <li><%= link_to "Car Prices", {:controller => 'car_prices', :action => 'index'}  %></li>
+
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

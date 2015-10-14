@@ -2,7 +2,8 @@ class Car < ActiveRecord::Base
 
 	#relations
 	belongs_to :models
-
+	has_many :car_prices
+	has_many :agents, :through => :car_prices
 	#inbetween
 	scope :visible, lambda { where(:visible => true) }
   	scope :sorted, lambda{ order("cars.position ASC") }

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :agents
+
   root "access#index"
 
   get 'admin', :to => "access#index"
@@ -7,6 +9,8 @@ Rails.application.routes.draw do
   resources :cars
 
   resources :admin_user
+
+  resources :car_prices
 
   resources :models
 

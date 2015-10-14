@@ -1,0 +1,40 @@
+<%- model_class = CarPrice -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:agent_id) %></th>
+      <th><%= model_class.human_attribute_name(:car_id) %></th>
+      <th><%= model_class.human_attribute_name(:price) %></th>
+      <th><%= model_class.human_attribute_name("Last Update") %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @car_prices.each do |car_price| %>
+      <tr>
+        <td><%= link_to car_price.id, car_price_path(car_price) %></td>
+        <td><%= link_to Agent.find(car_price.agent_id).name, { :controller => 'car_prices', :agent_id => car_price.agent_id} %></td>
+        <td><%= link_to Car.find(car_price.car_id).name, {:controller => 'car_prices', :car_id => car_price.id }  %></td>
+        <td><%= car_price.price %></td>
+        <td><%= time_ago_in_words(car_price.updated_at) + " ago" %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_car_price_path(car_price), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      car_price_path(car_price),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Add Price",
+            new_car_price_path,
+            :class => 'btn btn-primary' %>
