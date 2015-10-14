@@ -39,7 +39,7 @@ def admin_user_params
 
 
 
-  private
+  
   def confirm_adminstrator
   	unless session[:adminstrator]
   		flash[:notice]= "You Are Not Allowed!!"
