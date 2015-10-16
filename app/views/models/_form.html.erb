@@ -90,6 +90,6 @@
 
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            models_path, :class => 'btn btn-default' %>
+            models_path(:brand_id => @model.brand_id), :class => 'btn btn-default' %>
 
 <% end %>

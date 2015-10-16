@@ -18,8 +18,8 @@
       <tr>
         <td><%= link_to car_price.id, car_price_path(car_price) %></td>
         <td><%= link_to Agent.find(car_price.agent_id).name, { :controller => 'car_prices', :agent_id => car_price.agent_id} %></td>
-        <td><%= link_to Car.find(car_price.car_id).name, {:controller => 'car_prices', :car_id => car_price.id }  %></td>
-        <td><%= car_price.price %></td>
+        <td><%= link_to Car.find(car_price.car_id).name, {:controller => 'car_prices', :car_id => car_price.car_id }  %></td>
+        <td><%= number_to_currency(car_price.price, unit: "LE", precision: 0, format: "%n %u") %></td>
         <td><%= time_ago_in_words(car_price.updated_at) + " ago" %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -38,3 +38,8 @@
 <%= link_to "Add Price",
             new_car_price_path,
             :class => 'btn btn-primary' %>
+<teet style=" margin-left: 650px; ">
+<% if params[:car_id] || params[:agent_id] %>
+<%= link_to "All", {:controller => 'car_prices'} ,:class => 'btn btn-primary' %>
+<% end %>
+</teet>

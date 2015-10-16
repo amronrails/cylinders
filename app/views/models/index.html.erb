@@ -44,3 +44,8 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_model_path,
             :class => 'btn btn-primary' %>
+<teet style=" margin-left: 650px; ">
+<% if params[:brand_id] %>
+<%= link_to "All", {:controller => 'models'} ,:class => 'btn btn-primary' %>
+<% end %>
+</teet>

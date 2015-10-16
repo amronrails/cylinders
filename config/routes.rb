@@ -1,10 +1,22 @@
 Rails.application.routes.draw do
 
-  resources :agents
+  root "egypt#index"
 
-  root "access#index"
+  get 'companies/:permalink', :to => "egypt#companies"
+
+  get 'companies', :to => "egypt#newcars"
+
+  get 'vehicles/:permalink', :to => "egypt#vehicles"
+
+  get 'motors/:permalink', :to => "egypt#motors"
+
+  get 'dealers/:permalink', :to => "egypt#dealers"
 
   get 'admin', :to => "access#index"
+
+  get 'admin/brands', :to => "brands#index"
+
+  resources :agents
 
   resources :cars
 

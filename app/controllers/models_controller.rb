@@ -28,13 +28,16 @@ class ModelsController < ApplicationController
   # GET /models/1/edit
   def edit
     @brands = Brand.sorted
+    if params[:brand_id]
+      @brand = Brand.find(params[:brand_id])
+    end
   end
 
   # POST /models
   # POST /models.json
   def create
     @model = Model.new(model_params)
-
+    @brands = Brand.sorted
     respond_to do |format|
       if @model.save
         format.html { redirect_to @model, notice: 'Model was successfully created.' }
@@ -49,6 +52,7 @@ class ModelsController < ApplicationController
   # PATCH/PUT /models/1
   # PATCH/PUT /models/1.json
   def update
+    @brands = Brand.sorted
     respond_to do |format|
       if @model.update(model_params)
         format.html { redirect_to @model, notice: 'Model was successfully updated.' }
