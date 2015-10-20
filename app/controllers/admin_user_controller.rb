@@ -21,6 +21,7 @@ class AdminUserController < ApplicationController
       flash[:notice] = "User Added"
       redirect_to(:action => 'index')
     else
+      flash[:notice] = "Not saved"
       render('new')
     end
   end
