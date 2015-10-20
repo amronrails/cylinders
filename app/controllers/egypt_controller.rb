@@ -30,7 +30,22 @@ class EgyptController < ApplicationController
   end
 
   def newcars
-    
+
+  end
+
+  def compare
+    if params[:permalink1]
+      @car1=Car.where(:permalink => params[:permalink1]).first
+    end
+    if params[:permalink2]
+      @car2=Car.where(:permalink => params[:permalink2]).first
+    end
+    if params[:permalink3]
+      @car3=Car.where(:permalink => params[:permalink3]).first
+    end
+    if params[:permalink4]
+      @car4=Car.where(:permalink => params[:permalink4]).first
+    end
   end
 
 end

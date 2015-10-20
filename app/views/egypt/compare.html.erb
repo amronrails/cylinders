@@ -1,0 +1,16 @@
+<h1>Egypt#Compare</h1>
+<p>Qaren abl ma tshtry</p>
+
+
+<% if params[:permalink1] && params[:permalink2] && params[:permalink3] && params[:permalink4] %>
+<h3> <%= @car1.name + @car2.name + @car3.name + @car4.name %> </h3>
+
+<% elsif params[:permalink1] && params[:permalink2] && params[:permalink3]  %>
+<h3> <%= @car1.name + @car2.name + @car3.name%> </h3>
+
+<% elsif params[:permalink1] && params[:permalink2] %>
+<h3> <%= @car1.name + @car2.name %> </h3>
+
+<% else params[:permalink1] %>
+<h3> ايه النصاحة دي؟؟ هتقارن ما بين حاجة لوحدها </h3>
+<%end%>

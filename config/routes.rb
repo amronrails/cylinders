@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   get 'companies/:permalink', :to => "egypt#companies"
 
+  get 'compare/:permalink1', :to => "egypt#compare"
+  get 'compare/:permalink1/:permalink2', :to => "egypt#compare"
+  get 'compare/:permalink1/:permalink2/:permalink3', :to => "egypt#compare"
+  get 'compare/:permalink1/:permalink2/:permalink3/:permalink4', :to => "egypt#compare"
+
   get 'companies', :to => "egypt#newcars"
 
   get 'vehicles/:permalink', :to => "egypt#vehicles"
