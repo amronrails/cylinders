@@ -16,4 +16,6 @@ class Car < ActiveRecord::Base
   	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   	validates_presence_of :permalink
   	validates_uniqueness_of :permalink
+  	validates_presence_of :model_id
+
 end

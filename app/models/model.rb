@@ -14,4 +14,6 @@ has_many :cars
  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
  validates_presence_of :permalink
  validates_uniqueness_of :permalink
+ validates_presence_of :car_id
+
 end

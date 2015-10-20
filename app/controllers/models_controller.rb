@@ -11,7 +11,6 @@ class ModelsController < ApplicationController
     else
       @models = Model.sorted
     end
-
   end
 
   # GET /models/1

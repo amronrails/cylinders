@@ -26,7 +26,7 @@ class EgyptController < ApplicationController
   end
 
   def dealers
-
+    
   end
 
   def newcars

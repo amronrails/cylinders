@@ -24,10 +24,14 @@ class CarPricesController < ApplicationController
   # GET /car_prices/new
   def new
     @car_price = CarPrice.new(:car_id => params[:car_id])
+    @agents = Agent.sorted
+    @cars = Car.sorted
   end
 
   # GET /car_prices/1/edit
   def edit
+    @agents = Agent.sorted
+    @cars = Car.sorted
   end
 
   # POST /car_prices
