@@ -37,6 +37,8 @@ class CarPricesController < ApplicationController
   # POST /car_prices
   # POST /car_prices.json
   def create
+    @agents = Agent.sorted
+    @cars = Car.sorted
     @car_price = CarPrice.new(car_price_params)
 
     respond_to do |format|
@@ -83,12 +85,14 @@ class CarPricesController < ApplicationController
     def set_car
       if params[:car_id]
         @car = Car.find(params[:car_id])
+        @cars = Car.sorted
       end
     end
 
     def set_agent
       if params[:agent_id]
         @agent = Agent.find(params[:agent_id])
+        @agents = Agent.sorted
       end
     end
     # Never trust parameters from the scary internet, only allow the white list through.
