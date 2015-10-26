@@ -1,7 +1,7 @@
 class EgyptController < ApplicationController
   layout 'egypt'
   def index
-
+    @brands = Brand.sorted
   end
 
   def companies
