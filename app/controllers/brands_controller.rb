@@ -1,8 +1,7 @@
 class BrandsController < ApplicationController
 
   layout "twitter"
-  #TODO.........
-  #before_action :confirm_login
+  before_action :confirm_login
   before_action :set_brand, only: [:show, :edit, :update, :destroy]
 
   # GET /brands
