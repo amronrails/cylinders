@@ -3,7 +3,6 @@ class BrandsController < ApplicationController
   layout "twitter"
   before_action :confirm_login
   before_action :set_brand, only: [:show, :edit, :update, :destroy]
-
   # GET /brands
   # GET /brands.json
   def index
@@ -66,6 +65,7 @@ class BrandsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
