@@ -1,6 +1,8 @@
 class CarsController < ApplicationController
   layout "twitter"
-  before_action :confirm_login
+
+  #TODO
+  #before_action :confirm_login
   before_action :set_car, only: [:show, :edit, :update, :destroy]
   before_action :set_model
   # GET /cars

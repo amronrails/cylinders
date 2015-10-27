@@ -1,6 +1,8 @@
 class ModelsController < ApplicationController
   layout "twitter"
-  before_action :confirm_login
+
+  #TODO
+  #before_action :confirm_login
   before_action :set_model, only: [:show, :edit, :update, :destroy]
   before_action :set_brand
   # GET /models
@@ -36,7 +38,6 @@ class ModelsController < ApplicationController
   # POST /models.json
   def create
     @model = Model.new(model_params)
-    @brands = Brand.sorted
     respond_to do |format|
       if @model.save
         format.html { redirect_to @model, notice: 'Model was successfully created.' }
