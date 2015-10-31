@@ -3,7 +3,6 @@ class AccessController < ApplicationController
 	layout "twitter"
 	before_action :confirm_login, :except => [:login, :attempt_login, :logout]
   def index
-
   end
 
   def login

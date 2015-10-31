@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014162742) do
+ActiveRecord::Schema.define(version: 20151029004708) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "username",        limit: 255, null: false
@@ -109,5 +109,17 @@ ActiveRecord::Schema.define(version: 20151014162742) do
 
   add_index "models", ["brand_id"], name: "index_models_on_brand_id", using: :btree
   add_index "models", ["permalink"], name: "index_models_on_permalink", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username",        limit: 255, null: false
+    t.string   "password_digest", limit: 255, null: false
+    t.string   "email",           limit: 255, null: false
+    t.string   "name",            limit: 255
+    t.integer  "age",             limit: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "users", ["username", "email"], name: "index_users_on_username_and_email", using: :btree
 
 end

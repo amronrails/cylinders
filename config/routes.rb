@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :users
+
   root "egypt#index"
 
   get 'companies/:permalink', :to => "egypt#companies"
