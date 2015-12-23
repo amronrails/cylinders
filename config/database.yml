@@ -53,9 +53,3 @@ production:
   username: cylinder
   password: <%= ENV['CYLINDER_DATABASE_PASSWORD'] %>
 
-
-# production:
-#         adapter: postgresql
-#         database: cylinder7mra
-#         username: deployer
-#         password: MagdyAmr@6Cylinder2016
