@@ -34,6 +34,9 @@ gem 'bcrypt', '~> 3.1.7'
 group :production do
   gem 'pg',             '0.17.1'
   gem 'rails_12factor', '0.0.2'
+  gem 'capistrano', '~> 3.1.0'
+	gem 'capistrano-rails', '~> 1.1.1'
+	gem 'capistrano-rbenv', github: "capistrano/rbenv"
 end
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
